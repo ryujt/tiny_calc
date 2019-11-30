@@ -47,8 +47,9 @@ void do_etc(char ch)
 		case ')': printf(") sign \n"); break;
 
 		// 화이트 스페이스 무시
-		case ' ': break;
 		case 0: break;
+		case ' ': break;
+		case '\t': break;
 
 		default: {
 			printf("\nError \n");
