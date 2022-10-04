@@ -3,7 +3,7 @@
 
 %{
 #include <stdio.h>
-#include "calc.tab.h"
+#include "calc.tab.c"
 
 #define YY_NO_UNISTD_H
 #define YY_DECL int yylex()
