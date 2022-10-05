@@ -4,9 +4,6 @@
 %{
 #include <stdio.h>
 
-#define YY_NO_UNISTD_H
-#define YY_DECL int yylex()
-
 #define T_FLOAT     1
 #define T_INT       2
 #define T_NEWLINE   3
@@ -23,8 +20,8 @@ int ival;
 
 %%
 [ \t]           ; // ignore all whitespace
-[0-9]+\.[0-9]+  {yylval.fval = atof(yytext); return T_FLOAT;}
-[0-9]+          {yylval.ival = atoi(yytext); return T_INT;}
+[0-9]+\.[0-9]+  {fval = atof(yytext); return T_FLOAT;}
+[0-9]+          {ival = atoi(yytext); return T_INT;}
 \n              {return T_NEWLINE;}
 "+"             {return T_PLUS;}
 "-"             {return T_MINUS;}

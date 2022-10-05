@@ -4,7 +4,6 @@
 
 extern int yylex();
 extern int yyparse();
-extern FILE* yyin;
 
 void yyerror(const char* s);
 %}
@@ -15,7 +14,6 @@ void yyerror(const char* s);
 
 %token<fval> T_FLOAT
 %token T_PLUS T_MINUS T_MULTIPLY T_DIVIDE T_LEFT T_RIGHT
-%token T_NEWLINE
 %left T_PLUS T_MINUS
 %left T_MULTIPLY T_DIVIDE
 
@@ -39,7 +37,6 @@ expression:
 %%
 
 int main() {
-    yyin = stdin;
     return yyparse();
 }
 
