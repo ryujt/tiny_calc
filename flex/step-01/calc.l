@@ -22,15 +22,16 @@ int ival;
 %}
 
 %%
-[ \t]               ; // ignore all whitespace
-[0-9]+\.[0-9]+      {fval = atof(yytext); return T_FLOAT;}
-[0-9]+              {ival = atoi(yytext); return T_INT;}
-"+"                 {return T_PLUS;}
-"-"                 {return T_MINUS;}
-"*"                 {return T_MULTIPLY;}
-"/"                 {return T_DIVIDE;}
-"("                 {return T_LEFT;}
-")"                 {return T_RIGHT;}
+[ \t]           ; // ignore all whitespace
+[0-9]+\.[0-9]+  {yylval.fval = atof(yytext); return T_FLOAT;}
+[0-9]+          {yylval.ival = atoi(yytext); return T_INT;}
+\n              {return T_NEWLINE;}
+"+"             {return T_PLUS;}
+"-"             {return T_MINUS;}
+"*"             {return T_MULTIPLY;}
+"/"             {return T_DIVIDE;}
+"("             {return T_LEFT;}
+")"             {return T_RIGHT;}
 %%
 
 int main(int argc, char** argv) {
