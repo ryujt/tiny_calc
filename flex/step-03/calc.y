@@ -22,8 +22,6 @@ void yyerror(const char* s);
 %type<ival> expression
 %type<fval> mixed_expression
 
-%start calculation
-
 %%
 calculation: expression                 { printf("\tResult: %i\n", $1); }
     | mixed_expression                  { printf("\tResult: %f\n", $1);}
