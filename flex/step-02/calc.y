@@ -19,8 +19,6 @@ void yyerror(const char* s);
 
 %type<fval> expression
 
-%start calculation
-
 %%
 calculation:
     expression                          { printf("\tResult: %f\n", $1);}
